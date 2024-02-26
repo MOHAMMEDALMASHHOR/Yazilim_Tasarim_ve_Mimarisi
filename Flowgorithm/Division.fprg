@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-02-25 01:28:53 AM"/>
+        <attribute name="created" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAyLTI0OzA1OjI3OjE3IFBNOzI5OTE="/>
+        <attribute name="edited" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAyLTI1OzAxOjI4OjUzIEFNOzE7MzA4Mg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="a, b, r" type="Real" array="False" size=""/>
+            <input variable="a"/>
+            <input variable="b"/>
+            <if expression="b==0">
+                <then>
+                    <output expression="&quot;you can't make a division by zero&quot;" newline="True"/>
+                </then>
+                <else>
+                    <assign variable="r" expression="a/b"/>
+                    <output expression="&quot;a/b=&quot;&amp;a&amp;&quot;/&quot;&amp;b&amp;&quot;=&quot;&amp;r" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
