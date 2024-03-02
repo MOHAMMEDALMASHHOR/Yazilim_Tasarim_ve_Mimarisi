@@ -4,9 +4,9 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="Lenovo"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2024-03-01 05:30:08 PM"/>
+        <attribute name="saved" value="2024-03-01 11:13:51 PM"/>
         <attribute name="created" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAxOzAyOjUwOjI1IFBNOzI5Nzk="/>
-        <attribute name="edited" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAxOzA1OjMwOjA4IFBNOzI7MzA5MA=="/>
+        <attribute name="edited" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAxOzExOjEzOjUxIFBNOzM7MzA4Nw=="/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -20,7 +20,6 @@
                 <input variable="number"/>
                 <assign variable="arr[i]" expression="number"/>
             </for>
-            <declare name="max" type="Integer" array="False" size=""/>
             <assign variable="max" expression="arr[0]"/>
             <assign variable="i" expression="0"/>
             <for variable="i" start="0" end="n-1" direction="inc" step="1">
