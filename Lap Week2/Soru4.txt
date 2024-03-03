@@ -1,0 +1,14 @@
+number = int(input("Enter a decimal number: "))
+
+while number < 0:
+    print("Enter a positive number")
+    number = int(input("Enter a decimal number: "))
+
+binary_string = ""
+
+while number != 0:
+    remainder = number % 2
+    binary_string = str(remainder) + binary_string
+    number //= 2
+
+print("Binary equivalent:", binary_string)
