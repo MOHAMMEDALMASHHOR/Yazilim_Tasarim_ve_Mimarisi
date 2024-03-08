@@ -1,0 +1,33 @@
+@startuml Soru
+left to right direction
+skinparam packageStyle rectangle
+
+actor Student as "Öğrenci"
+actor Registrar as "Kayıt Memuru"
+actor Instructor as "Eğitmen"
+
+rectangle "Üniversite Ders Kayıt Sistemi" {
+    usecase (BrowseCourses) as "Kurslara Gözat"
+    usecase (EnrollInCourse) as "Kurs için Kaydol"
+    usecase (DropCourse) as "Kursu Bırak"
+    usecase (ViewSchedule) as "Programı Görüntüle"
+    usecase (AddCourse) as "Kurs Ekle"
+    usecase (RemoveCourse) as "Kursu Kaldır"
+    usecase (ModifyCourse) as "Kursu Değiştir"
+    usecase (ViewClassList) as "Sınıf Listesini Görüntüle"
+    usecase (EnterGrades) as "Notları Gir"
+
+    Student --> BrowseCourses
+    Student --> EnrollInCourse
+    Student --> DropCourse
+    Student --> ViewSchedule
+
+    Registrar --> AddCourse
+    Registrar --> RemoveCourse
+    Registrar --> ModifyCourse
+
+    Instructor --> ViewClassList
+    Instructor --> EnterGrades
+}
+
+@enduml
