@@ -1,0 +1,22 @@
+<mxfile host="Electron" modified="2024-03-15T14:53:44.807Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="kZ4leqGoJe5ZD6PmgJiu" version="23.1.5" type="device">
+  <diagram name="Page-1" id="xkQ7ZnBhXbFdmiUUH69e">
+    <mxGraphModel dx="780" dy="504" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BiYH1pEdfoPy7cQs5lZl-1" value="BankaHesabi" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="BiYH1pEdfoPy7cQs5lZl-2" value="- hesapNumarasi: string&lt;br&gt;- bakiye: float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="BiYH1pEdfoPy7cQs5lZl-1">
+          <mxGeometry y="26" width="180" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="BiYH1pEdfoPy7cQs5lZl-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="BiYH1pEdfoPy7cQs5lZl-1">
+          <mxGeometry y="60" width="180" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="BiYH1pEdfoPy7cQs5lZl-4" value="+paraYatir (float miktar): void&lt;br&gt;+paraCek (float miktar): bool&lt;br&gt;+&amp;nbsp;bakiyeGoster(): float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="BiYH1pEdfoPy7cQs5lZl-1">
+          <mxGeometry y="68" width="180" height="52" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

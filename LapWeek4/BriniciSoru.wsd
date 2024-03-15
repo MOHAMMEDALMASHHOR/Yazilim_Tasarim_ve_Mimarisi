@@ -1,0 +1,9 @@
+@startuml
+class BankaHesabi {
+    - hesapNumarasi : String
+    - bakiye : float
+    + paraYatir(miktar : float) : void
+    + paraCek(miktar : float) : bool
+    + bakiyeGoster() : float
+}
+@enduml

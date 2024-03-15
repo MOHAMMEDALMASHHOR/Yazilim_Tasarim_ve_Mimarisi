@@ -1,0 +1,18 @@
+@startuml
+class AlisverisSepeti {
+    - urunler : List<Urun>
+    + urunEkle(urun : Urun) : void
+    + urunCikar(urun : Urun) : void
+    + toplamHesap() : float
+    + checkout() : void
+}
+
+class Urun {
+    - ad : String
+    - fiyat : float
+    + isimGoster() : String
+    + fiyatGoster() : float
+}
+
+AlisverisSepeti "1" -- "*" Urun
+@enduml

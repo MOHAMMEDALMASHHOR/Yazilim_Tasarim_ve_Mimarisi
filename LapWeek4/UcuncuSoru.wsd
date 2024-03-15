@@ -1,0 +1,51 @@
+@startuml
+
+class Kitap {
+    - baslik : String
+    - yazar : String
+    - fiyat : double
+    - tur : String
+    + baslikGoster() : String
+    + yazarGoster() : String
+    + fiyatGoster() : double
+    + turGoster() : String
+}
+
+class KurguKitabi extends Kitap {
+    - isbn : String
+    - yayinEvi : String
+    + isbnGoster() : String
+    + yayinEviGoster() : String
+}
+
+class AlisverisSepeti {
+    - urunler : List<Kitap>
+    + urunEkle(kitap : Kitap) : void
+    + urunCikar(kitap : Kitap) : void
+    + toplamHesap() : double
+}
+
+class Musteri {
+    - musteriId : String
+    - ad : String
+    - email : String
+    + musteriIdGoster() : String
+    + adGoster() : String
+    + emailGoster() : String
+    + emailGuncelle(email : String) : void
+}
+
+class Siparis {
+    - siparisId : String
+    - musteri : Musteri
+    - urunler : List<Kitap>
+    - toplamFiyat : double
+    + siparisIdGoster() : String
+    + musteriGetir() : Musteri
+    + urunlerGetir() : List<Kitap>
+    + toplamFiyatGetir() : double
+    + urunEkle(kitaplar : List<Kitap>) : void
+    + toplamFiyatGuncelle() : void
+}
+
+@enduml

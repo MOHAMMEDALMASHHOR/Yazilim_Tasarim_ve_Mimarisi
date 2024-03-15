@@ -1,0 +1,88 @@
+<mxfile host="Electron" modified="2024-03-15T14:53:32.713Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="gXPRQ_WibCFIGiccNyEP" version="23.1.5" type="device">
+  <diagram name="Page-1" id="zTVV5fYnQDA912w8Vkj5">
+    <mxGraphModel dx="1134" dy="741" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-2" value="Kitap" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="205" width="230" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-2">
+          <mxGeometry y="26" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-3" value="&lt;div&gt;- baslik : String&lt;/div&gt;&lt;div&gt;- yazar : String&lt;/div&gt;&lt;div&gt;- fiyat : double&lt;/div&gt;&lt;div&gt;- tur : String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-2">
+          <mxGeometry y="34" width="230" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-5" value="&lt;div&gt;+ baslikGoster () : String&lt;/div&gt;&lt;div&gt;+ yazarGoster () : String&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ fiyatGoster () : double&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ turGoster() : String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-2">
+          <mxGeometry y="98" width="230" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-6" value="AlisverisSepeti" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="430" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-7" value="- urunler :&amp;nbsp;&amp;nbsp;List&amp;lt;Kitap&amp;gt;&amp;nbsp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-6">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-6">
+          <mxGeometry y="52" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-9" value="+ urunEkle (Urun urun) : void&lt;br&gt;+ urunCikar (Urun urun) : void&lt;br&gt;+ toplamHesap () : float" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-6">
+          <mxGeometry y="60" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.414;entryY=0.012;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="DabCTi73Cw12KUjxk7qJ-10" target="DabCTi73Cw12KUjxk7qJ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-10" value="KurguKitabi" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="35" y="10" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-11" value="&lt;div&gt;- isbn : String&lt;/div&gt;&lt;div&gt;- yayinEvi : String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-10">
+          <mxGeometry y="26" width="160" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-10">
+          <mxGeometry y="60" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-13" value="&lt;div&gt;+ isbnGoster() : String&lt;/div&gt;&lt;div&gt;+ yayinEviGoster() : String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-10">
+          <mxGeometry y="68" width="160" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-18" value="Musteri" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="655" y="400" width="230" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-19" value="&lt;div&gt;- musteriId : String&lt;/div&gt;&lt;div&gt;- ad : String&lt;/div&gt;&lt;div&gt;- email : String&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-18">
+          <mxGeometry y="26" width="230" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-21" value="&lt;div&gt;+ musteriIdGoster () : String&lt;/div&gt;&lt;div&gt;+ adGoster () : String&lt;/div&gt;&lt;div&gt;+ emailGoster () : String&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ emailGuncelle (String email) : void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-18">
+          <mxGeometry y="80" width="230" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-20" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-18">
+          <mxGeometry y="152" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-22" value="Siparis" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="355" y="390" width="230" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-23" value="&lt;div&gt;- siparisId : String&lt;/div&gt;&lt;div&gt;- musteri :&amp;nbsp;Musteri&amp;nbsp;&lt;/div&gt;&lt;div&gt;- urunler :&amp;nbsp;&amp;nbsp;List&amp;lt;Kitap&amp;gt;&lt;/div&gt;&lt;div&gt;- toplamFiyat : double&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-22">
+          <mxGeometry y="26" width="230" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-24" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-22">
+          <mxGeometry y="90" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-25" value="&lt;div&gt;+ siparisIdGoster() : String&lt;/div&gt;&lt;div&gt;+ musteriGetir () :&amp;nbsp;Musteri&amp;nbsp;&lt;/div&gt;&lt;div&gt;+ urunlerGetir () :&amp;nbsp;&amp;nbsp;List&amp;lt;Kitap&amp;gt;&lt;/div&gt;&lt;div&gt;+ toplamFiyatGetir () : double&lt;/div&gt;&lt;div&gt;+ urunEkle (List&amp;lt;Kitap&amp;gt; kitaplar) : void&lt;/div&gt;&lt;div&gt;+ toplamFiyatGuncelle() : void&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="DabCTi73Cw12KUjxk7qJ-22">
+          <mxGeometry y="98" width="230" height="102" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-26" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="1">
+          <mxGeometry x="235" y="486" width="120" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-27" value="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="215" y="464" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-28" value="0...n" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="305" y="464" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-33" value="Inheritance" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="125" y="150" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DabCTi73Cw12KUjxk7qJ-36" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="1">
+          <mxGeometry x="585" y="475" width="70" height="8" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
