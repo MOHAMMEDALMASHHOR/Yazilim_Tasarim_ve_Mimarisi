@@ -1,0 +1,413 @@
+Sub PQvsLO_YZM()
+Sheets("Hesaplamalar").Select
+i = 1
+f = 0
+Do While f = 0
+   i = i + 1
+   If (Cells(14, i) = "") Then
+      f = 1
+   End If
+Loop
+m = i - 2
+
+For i = 1 To m
+    Cells(4, m + 5 + i) = i
+    Cells(4, m + 5 + i).HorizontalAlignment = xlCenter
+    Cells(4, m + 5 + i).Borders.LineStyle = xlContinuous
+    Cells(4, m + 5 + i).NumberFormat = "0"
+Next i
+For j = 1 To 8
+   Cells(4 + j, m + 5) = j
+   Cells(4 + j, m + 5).HorizontalAlignment = xlCenter
+   Cells(4 + j, m + 5).Borders.LineStyle = xlContinuous
+   Cells(4 + j, m + 5).NumberFormat = "0"
+Next j
+
+ReDim lo(8, m) As Integer
+For i = 1 To m
+   For j = 1 To 8
+      lo(j, i) = Cells(4 + j, 1 + i)
+      Cells(4 + j, m + 5 + i) = lo(j, i)
+      Cells(4 + j, m + 5 + i).HorizontalAlignment = xlCenter
+      Cells(4 + j, m + 5 + i).Borders.LineStyle = xlContinuous
+      Cells(4 + j, m + 5 + i).NumberFormat = "0"
+   Next j
+Next i
+
+ReDim w(m) As Double
+ReDim t(m) As Double
+
+For i = 1 To m
+   w(i) = Cells(13, 1 + i)
+   Cells(13, m + 5 + i) = w(i)
+   Cells(13, m + 5 + i).HorizontalAlignment = xlCenter
+   Cells(13, m + 5 + i).Borders.LineStyle = xlContinuous
+   Cells(13, m + 5 + i).NumberFormat = "0.00"
+   t(i) = Cells(14, 1 + i)
+   Cells(14, m + 5 + i) = t(i)
+   Cells(14, m + 5 + i).HorizontalAlignment = xlCenter
+   Cells(14, m + 5 + i).Borders.LineStyle = xlContinuous
+   Cells(14, m + 5 + i).NumberFormat = "0.00"
+Next i
+j = 16
+Do While Cells(j, 1) <> ""
+   j = j + 1
+Loop
+n = j - 16
+
+ReDim scores(n, m) As Double
+ReDim identifier(n)
+
+For j = 1 To n
+    identifier(j) = Cells(15 + j, 1)
+    Cells(15 + j, m + 5) = identifier(j)
+    Cells(15 + j, m + 5).HorizontalAlignment = xlCenter
+    Cells(15 + j, m + 5).Borders.LineStyle = xlContinuous
+    Cells(15 + j, m + 5).NumberFormat = "0"
+    For i = 1 To m
+       scores(j, i) = Cells(15 + j, 1 + i)
+       scores(j, i) = 100 * scores(j, i) / t(i)
+       Cells(15 + j, m + 5 + i) = scores(j, i)
+       Cells(15 + j, m + 5 + i).HorizontalAlignment = xlCenter
+       Cells(15 + j, m + 5 + i).Borders.LineStyle = xlContinuous
+       Cells(15 + j, m + 5 + i).NumberFormat = "0.00"
+    Next i
+Next j
+
+ReDim low(8)
+
+Cells(14, 2 * m + 8) = "Öðrenim Çýktýsý Kazanýmlarý"
+Cells(14, 2 * m + 8).Font.Bold = True
+Range(Cells(14, 2 * m + 8), Cells(14, 2 * m + 10)).Merge
+
+For k = 1 To 8
+   low(k) = 0
+   For i = 1 To m
+      low(k) = low(k) + w(i) * lo(k, i)
+   Next i
+   Cells(15, 2 * m + 8 + k) = low(k)
+   Cells(15, 2 * m + 8 + k).HorizontalAlignment = xlCenter
+   Cells(15, 2 * m + 8 + k).Borders.LineStyle = xlContinuous
+   Cells(15, 2 * m + 8 + k).NumberFormat = "0.00"
+   Cells(15, 2 * m + 8 + k).Font.Bold = True
+Next k
+
+ReDim minlos(8) As Double
+ReDim avglos(8) As Double
+ReDim los(n, 8) As Double
+
+For k = 1 To 8
+   minlos(k) = 100
+   avglos(k) = 0
+   For j = 1 To n
+      los(j, k) = 0
+      For i = 1 To m
+         If (low(k) > 0) Then
+            los(j, k) = los(j, k) + scores(j, i) * w(i) * lo(k, i) / low(k)
+         End If
+      Next i
+      avglos(k) = avglos(k) + los(j, k) / n
+      If (los(j, k) < minlos(k)) Then
+         minlos(k) = los(j, k)
+      End If
+   Next j
+Next k
+
+For j = 1 To n
+   Cells(15 + j, 2 * m + 8) = identifier(j)
+   Cells(15 + j, 2 * m + 8).HorizontalAlignment = xlCenter
+   Cells(15 + j, 2 * m + 8).Borders.LineStyle = xlContinuous
+   Cells(15 + j, 2 * m + 8).NumberFormat = "0"
+   For k = 1 To 8
+      Cells(15 + j, 2 * m + 8 + k) = los(j, k)
+      Cells(15 + j, 2 * m + 8 + k).HorizontalAlignment = xlCenter
+      Cells(15 + j, 2 * m + 8 + k).Borders.LineStyle = xlContinuous
+      Cells(15 + j, 2 * m + 8 + k).NumberFormat = "0.00"
+
+   Next k
+Next j
+
+Cells(15 + n + 1, 2 * m + 8) = "Average:"
+Cells(15 + n + 1, 2 * m + 8).HorizontalAlignment = xlCenter
+Cells(15 + n + 1, 2 * m + 8).Borders.LineStyle = xlContinuous
+Cells(15 + n + 1, 2 * m + 8).Font.Bold = True
+
+Cells(15 + n + 2, 2 * m + 8) = "Minimum:"
+Cells(15 + n + 2, 2 * m + 8).HorizontalAlignment = xlCenter
+Cells(15 + n + 2, 2 * m + 8).Borders.LineStyle = xlContinuous
+Cells(15 + n + 2, 2 * m + 8).Font.Bold = True
+
+For k = 1 To 8
+   Cells(15 + n + 1, 2 * m + 8 + k) = avglos(k)
+   Cells(15 + n + 1, 2 * m + 8 + k).HorizontalAlignment = xlCenter
+   Cells(15 + n + 1, 2 * m + 8 + k).Borders.LineStyle = xlContinuous
+   Cells(15 + n + 1, 2 * m + 8 + k).NumberFormat = "0.00"
+   Cells(15 + n + 1, 2 * m + 8 + k).Font.Bold = True
+  
+   Cells(15 + n + 2, 2 * m + 8 + k) = minlos(k)
+   Cells(15 + n + 2, 2 * m + 8 + k).HorizontalAlignment = xlCenter
+   Cells(15 + n + 2, 2 * m + 8 + k).Borders.LineStyle = xlContinuous
+   Cells(15 + n + 2, 2 * m + 8 + k).NumberFormat = "0.00"
+   Cells(15 + n + 2, 2 * m + 8 + k).Font.Bold = True
+Next k
+
+ReDim pq(12, 8) As Integer
+
+For k = 1 To 8
+   Cells(1, 2 * m + 8 + k) = k
+   Cells(1, 2 * m + 8 + k).HorizontalAlignment = xlCenter
+   Cells(1, 2 * m + 8 + k).Borders.LineStyle = xlContinuous
+   Cells(1, 2 * m + 8 + k).NumberFormat = "0"
+   For l = 1 To 12
+      Cells(1 + l, 2 * m + 8) = l
+      Cells(1 + l, 2 * m + 8).HorizontalAlignment = xlCenter
+      Cells(1 + l, 2 * m + 8).Borders.LineStyle = xlContinuous
+      Cells(1 + l, 2 * m + 8).NumberFormat = "0"
+      pq(l, k) = Worksheets(1).Cells(35 + l, 1 + k)
+      Cells(1 + l, 2 * m + 8 + k) = pq(l, k)
+      Cells(1 + l, 2 * m + 8 + k).HorizontalAlignment = xlCenter
+      Cells(1 + l, 2 * m + 8 + k).Borders.LineStyle = xlContinuous
+      Cells(1 + l, 2 * m + 8 + k).NumberFormat = "0"
+   Next l
+Next k
+
+ReDim mm(12, m) As Double
+
+For l = 1 To 12
+   Cells(l + 1, 2 * m + 19) = l
+   Cells(l + 1, 2 * m + 19).HorizontalAlignment = xlCenter
+   Cells(l + 1, 2 * m + 19).Borders.LineStyle = xlContinuous
+   Cells(l + 1, 2 * m + 19).NumberFormat = "0"
+   For i = 1 To m
+      mm(l, i) = 0
+      Cells(1, 2 * m + 19 + i) = i
+      Cells(1, 2 * m + 19 + i).HorizontalAlignment = xlCenter
+      Cells(1, 2 * m + 19 + i).Borders.LineStyle = xlContinuous
+      Cells(1, 2 * m + 19 + i).NumberFormat = "0"
+      For k = 1 To 8
+         mm(l, i) = mm(l, i) + pq(l, k) * lo(k, i)
+      Next k
+      If (mm(l, i) > 0) Then
+         mm(l, i) = 1
+      End If
+      Cells(1 + l, 2 * m + 19 + i) = mm(l, i)
+      Cells(1 + l, 2 * m + 19 + i).HorizontalAlignment = xlCenter
+      Cells(1 + l, 2 * m + 19 + i).Borders.LineStyle = xlContinuous
+      Cells(1 + l, 2 * m + 19 + i).NumberFormat = "0"
+
+   Next i
+Next l
+
+ReDim pqw(12)
+Cells(14, 2 * m + 19) = "Program Çýktýsý Kazanýmlarý"
+Cells(14, 2 * m + 19).Font.Bold = True
+Range(Cells(14, 2 * m + 19), Cells(14, 2 * m + 21)).Merge
+For l = 1 To 12
+   pqw(l) = 0
+   For i = 1 To m
+      pqw(l) = pqw(l) + w(i) * mm(l, i)
+   Next i
+   Cells(15, 2 * m + 19 + l) = pqw(l)
+   Cells(15, 2 * m + 19 + l).HorizontalAlignment = xlCenter
+   Cells(15, 2 * m + 19 + l).Borders.LineStyle = xlContinuous
+   Cells(15, 2 * m + 19 + l).NumberFormat = "0.00"
+   Cells(15, 2 * m + 19 + l).Font.Bold = True
+Next l
+
+ReDim minpqs(12) As Double
+ReDim avgpqs(12) As Double
+ReDim pqs(n, 12) As Double
+
+For l = 1 To 12
+   minpqs(l) = 100
+   avgpqs(l) = 0
+   For j = 1 To n
+      pqs(j, l) = 0
+      For i = 1 To m
+         If (pqw(l) > 0) Then
+            pqs(j, l) = pqs(j, l) + scores(j, i) * w(i) * mm(l, i) / pqw(l)
+         End If
+      Next i
+      avgpqs(l) = avgpqs(l) + pqs(j, l) / n
+      If (pqs(j, l) < minpqs(l)) Then
+         minpqs(l) = pqs(j, l)
+      End If
+   Next j
+
+Next l
+
+For j = 1 To n
+   Cells(15 + j, 2 * m + 19) = identifier(j)
+   Cells(15 + j, 2 * m + 19).HorizontalAlignment = xlCenter
+   Cells(15 + j, 2 * m + 19).Borders.LineStyle = xlContinuous
+   Cells(15 + j, 2 * m + 19).NumberFormat = "0"
+   
+   For l = 1 To 12
+      Cells(15 + j, 2 * m + 19 + l) = pqs(j, l)
+      Cells(15 + j, 2 * m + 19 + l).HorizontalAlignment = xlCenter
+      Cells(15 + j, 2 * m + 19 + l).Borders.LineStyle = xlContinuous
+      Cells(15 + j, 2 * m + 19 + l).NumberFormat = "0.00"
+   Next l
+Next j
+
+Cells(15 + n + 1, 2 * m + 19) = "Ortalama:"
+Cells(15 + n + 1, 2 * m + 19).HorizontalAlignment = xlCenter
+Cells(15 + n + 1, 2 * m + 19).Borders.LineStyle = xlContinuous
+Cells(15 + n + 1, 2 * m + 19).Font.Bold = True
+Cells(15 + n + 2, 2 * m + 19) = "Minimum:"
+Cells(15 + n + 2, 2 * m + 19).HorizontalAlignment = xlCenter
+Cells(15 + n + 2, 2 * m + 19).Borders.LineStyle = xlContinuous
+Cells(15 + n + 2, 2 * m + 19).Font.Bold = True
+For l = 1 To 12
+   Cells(15 + n + 1, 2 * m + 19 + l) = avgpqs(l)
+   Cells(15 + n + 1, 2 * m + 19 + l).HorizontalAlignment = xlCenter
+   Cells(15 + n + 1, 2 * m + 19 + l).Borders.LineStyle = xlContinuous
+   Cells(15 + n + 1, 2 * m + 19 + l).NumberFormat = "0.00"
+   Cells(15 + n + 1, 2 * m + 19 + l).Font.Bold = True
+   Cells(15 + n + 2, 2 * m + 19 + l) = minpqs(l)
+   Cells(15 + n + 2, 2 * m + 19 + l).HorizontalAlignment = xlCenter
+   Cells(15 + n + 2, 2 * m + 19 + l).Borders.LineStyle = xlContinuous
+   Cells(15 + n + 2, 2 * m + 19 + l).NumberFormat = "0.00"
+   Cells(15 + n + 2, 2 * m + 19 + l).Font.Bold = True
+Next l
+
+Columns.AutoFit
+    ChDir "C:\Users\complab\Desktop"
+    ActiveWorkbook.SaveAs Filename:= _
+        "C:\Users\complab\Desktop\Müdek_Excell_YZM.xlsm", FileFormat:= _
+        xlOpenXMLWorkbookMacroEnabled, CreateBackup:=False
+End Sub
+Sub SetUp_YZM()
+   Dim AssesmentTitle(10) As Variant
+   Dim AssesmentPercent(10) As Double
+   Dim AssesmentSubNo(10) As Integer
+   Dim SubTitle(10, 10) As Variant
+   Dim SubPercent(10, 10) As Double
+   Dim ClName(30) As Variant
+   Dim sumpercent As Double
+   Dim sumsub(10) As Double
+   
+       
+   n = Cells(1, 5)
+   m = Cells(113, 5)
+   
+   If Cells(113, 5).Value = 0 Then
+        MsgBox "Ögrenci Sayisini 113. satirda belirtilen hücreye giriniz"
+        Exit Sub
+    End If
+    
+   
+   
+   sumpercent = 0
+
+   
+   
+   
+   
+   For i = 1 To n
+      sumsub(i) = 0
+      AssesmentTitle(i) = Cells((i - 1) * 11 + 3, 3)
+      AssesmentPercent(i) = Cells((i - 1) * 11 + 3, 4) / 100
+      AssesmentSubNo(i) = Cells((i - 1) * 11 + 3, 5)
+      sumpercent = sumpercent + AssesmentPercent(i)
+      
+      For j = 1 To AssesmentSubNo(i)
+          SubTitle(i, j) = Cells((i - 1) * 11 + 3 + j, 3)
+          SubPercent(i, j) = Cells((i - 1) * 11 + 3 + j, 4)
+          sumsub(i) = SubPercent(i, j) + sumsub(i)
+      Next j
+      If sumsub(i) <> 100 Then
+            MsgBox "Degerlendirme araci: " & i & " için alt yüzde toplami eksik"
+            Exit Sub
+            
+      End If
+        
+ 
+   Next i
+   
+      If sumpercent <> 1 Then
+            MsgBox "Degerlendirme araçlari için yüzde toplami eksik"
+            Exit Sub
+            
+      End If
+      
+      
+   AssesmentSubNo(0) = 0
+   Start = 1
+   Sheets(3).Select
+   Rows("16:116").Delete
+   Columns("B:CZ").Delete
+   
+   For i = 5 To 12
+   Cells(i, 1) = "Ö-" & i - 4
+   Cells(i, 1).HorizontalAlignment = xlCenter
+         Cells(i, 1).Borders.LineStyle = xlContinuous
+         Cells(i, 1).Interior.ColorIndex = 37
+   Next i
+   Cells(13, 1) = "Agirlik"
+   Cells(13, 1).Borders.LineStyle = xlContinuous
+   
+   
+   For i = 1 To n
+      Start = Start + AssesmentSubNo(i)
+   Next i
+   Range(Cells(5, 2), Cells(12, Start)).HorizontalAlignment = xlCenter
+   Range(Cells(5, 2), Cells(12, Start)).Borders.LineStyle = xlContinuous
+   Start = 2
+      For i = 1 To n
+         Start = Start + AssesmentSubNo(i - 1)
+         Cells(1, Start) = AssesmentTitle(i)
+         Range(Cells(1, Start), Cells(1, Start + AssesmentSubNo(i) - 1)).Merge
+         Range(Cells(1, Start), Cells(1, Start + AssesmentSubNo(i) - 1)).HorizontalAlignment = xlCenter
+         Range(Cells(1, Start), Cells(1, Start + AssesmentSubNo(i) - 1)).Borders.LineStyle = xlContinuous
+         Range(Cells(1, Start), Cells(1, Start + AssesmentSubNo(i) - 1)).Interior.ColorIndex = 37
+
+         Cells(2, Start) = AssesmentPercent(i)
+         Range(Cells(2, Start), Cells(2, Start + AssesmentSubNo(i) - 1)).Merge
+         Range(Cells(2, Start), Cells(2, Start + AssesmentSubNo(i) - 1)).HorizontalAlignment = xlCenter
+         Range(Cells(2, Start), Cells(2, Start + AssesmentSubNo(i) - 1)).Borders.LineStyle = xlContinuous
+         Range(Cells(2, Start), Cells(2, Start + AssesmentSubNo(i) - 1)).Interior.ColorIndex = 37
+
+         For j = 1 To AssesmentSubNo(i)
+            Cells(3, Start + j - 1) = SubTitle(i, j)
+            Cells(3, Start + j - 1).HorizontalAlignment = xlCenter
+            Cells(3, Start + j - 1).Borders.LineStyle = xlContinuous
+            Cells(3, Start + j - 1).Interior.ColorIndex = 37
+            
+            Cells(15, Start + j - 1) = SubTitle(i, j)
+            Cells(15, Start + j - 1).HorizontalAlignment = xlCenter
+            Cells(15, Start + j - 1).Borders.LineStyle = xlContinuous
+            Cells(15, Start + j - 1).Interior.ColorIndex = 37
+            
+            Cells(4, Start + j - 1) = SubPercent(i, j)
+            Cells(4, Start + j - 1).HorizontalAlignment = xlCenter
+            Cells(4, Start + j - 1).Borders.LineStyle = xlContinuous
+            Cells(4, Start + j - 1).Interior.ColorIndex = 37
+            
+            Cells(13, Start + j - 1) = AssesmentPercent(i) * SubPercent(i, j)
+            Cells(13, Start + j - 1).HorizontalAlignment = xlCenter
+            Cells(13, Start + j - 1).Borders.LineStyle = xlContinuous
+            Cells(13, Start + j - 1).Interior.ColorIndex = 37
+            
+            Cells(14, Start + j - 1).HorizontalAlignment = xlCenter
+            Cells(14, Start + j - 1).Borders.LineStyle = xlContinuous
+         Next j
+      Next i
+   Cells(15, 1) = "Ögr. No"
+   Cells(15, 1).HorizontalAlignment = xlCenter
+   Cells(15, 1).Borders.LineStyle = xlContinuous
+   Cells(15, 1).Interior.ColorIndex = 37
+
+   Cells(15, Start + AssesmentSubNo(n)) = "Harf Notu"
+   Cells(15, Start + AssesmentSubNo(n)).HorizontalAlignment = xlCenter
+   Cells(15, Start + AssesmentSubNo(n)).Borders.LineStyle = xlContinuous
+   Cells(15, Start + AssesmentSubNo(n)).Interior.ColorIndex = 37
+   Range("A5:A15").Interior.ColorIndex = 37
+ 
+   
+   Sheets(3).Range(Cells(16, 1), Cells(16 + m - 1, Start + AssesmentSubNo(n))).Borders.LineStyle = xlContinuous
+   Sheets(3).Range(Cells(16, 1), Cells(16 + m - 1, Start + AssesmentSubNo(n))).HorizontalAlignment = xlCenter
+   Sheets(3).Range(Cells(16, 1), Cells(16 + m - 1, Start + AssesmentSubNo(n))).NumberFormat = "0.00"
+   Columns.AutoFit
+    ActiveWorkbook.Save
+End Sub
