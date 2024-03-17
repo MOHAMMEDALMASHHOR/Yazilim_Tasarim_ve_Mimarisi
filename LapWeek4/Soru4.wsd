@@ -1,0 +1,105 @@
+@startuml
+
+class Kullanici {
+    - kullaniciId: String
+    - kullaniciAdi: String
+    - email: String
+    - sifre: String
+    + kullaniciIdGoster(): String
+    + kullaniciAdiGoster(): String
+    + emailGoster(): String
+    + sifreAyarla(sifre: String)
+    + oturumAc()
+    + oturumKapat()
+}
+
+class Egitmen {
+    - verilenKurslar: List<Kurs>
+    + kursOlustur(kursAdi: String)
+    + icerikEkle(kurs: Kurs, icerik: Icerik)
+    + odevNotlandir(assignment: Assignment, not: Not)
+}
+
+class Ogrenci {
+    - alinanKurslar: List<Kurs>
+    - tamamlananOdevler: List<Odev>
+    + kayit(course: Course)
+    + odevGonder(odev: Odev)
+    + notIncele(): List<Not>
+}
+
+class Kurs {
+    - kursId: String
+    - kursAdi: String
+    - egitmen: Egitmen
+    - kayitliOgrenciler: List<Ogrenci>
+    - kursIcerik: List<Icerik>
+    + kursIdGoster(): String
+    + kursAdiGoster(): String
+    + egitmenGoster(): Egitmen
+    + kayitliOgrenciGoster(): List<Ogrenci>
+    + icerikGoster(): List<Icerik>
+    + ogrenciEkle(ogrenci: Ogrenci)
+    + icerikEkle(icerik: Icerik)
+}
+
+class Odev {
+    - odevId: String
+    - odevAdi: String
+    - kurs: Kurs
+    - sonTarih: SonTarih
+    + odevIdGoster(): String
+    + odevAdiGoster(): String
+    + kursGoster(): Kurs
+    + sonTarihGoster(): SonTarih
+    + gonderimGoster(): List<Gonderim>
+    + gonderimEkle(gonderim: Gonderim)
+}
+
+class Gonderim {
+    - gonderimId: String
+    - ogrenci: Ogrenci
+    - odev: Odev
+    - gonderimTarih: Date
+    - icerik: String
+    - not: Not
+    + gonderimIdGoster(): String
+    + ogrenciGoster(): Ogrenci
+    + odevGoster(): Odev
+    + gonderimTarihGoster(): Date
+    + icerikGoster(): String
+    + notGoster(): Not
+    + notAyarla(not: Not)
+}
+
+class Icerik {
+    - icerikId: String
+    - icerikBaslik: String
+    - icerikTanim: String
+    - kurs: Kurs
+    + icerikIdGoster(): String
+    + icerikBaslikGoster(): String
+    + icerikTanimGoster(): String
+    + kursGoster(): Kurs
+}
+
+class Not {
+    - notId: String
+    - puan: double
+    - geriDonus: String
+    + notIdGoster(): String
+    + puanGoster(): double
+    + geriDonusGoster(): String
+    + geriDonusAyarla(feedback: String)
+}
+
+Kullanici <|-- Egitmen
+Kullanici <|-- Ogrenci
+Egitmen "1" -- "0..*" Kurs : Creates/Manages >
+Ogrenci "1" -- "0..*" Kurs : Enrolls >
+Kurs "1" -- "0..*" Odev : Contains >
+Odev "1" -- "0..*" Gonderim : Associated With >
+Icerik "0..*" -- "1" Kurs : Part of >
+Gonderim "1" -- "1" Not : Evaluated By >
+
+@enduml

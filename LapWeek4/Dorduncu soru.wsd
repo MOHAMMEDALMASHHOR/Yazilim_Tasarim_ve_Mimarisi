@@ -1,0 +1,104 @@
+@startuml
+' Define classes
+class Kullanici {
+    -kullaniciId: String
+    -kullaniciAdi: String
+    -email: String
+    -sifre: String
+    +kullaniciIdGoster(): String
+    +kullaniciAdiGoster(): String
+    +emailGoster(): String
+    +sifreAyarla(sifre: String): void
+    +oturumAc(): void
+    +oturumKapat(): void
+}
+
+class Egitmen {
+    -verilenKurslar: List<Kurs>
+    +kursOlustur(kursAdi: String): void
+    +icerikEkle(kurs: Kurs, icerik: Icerik): void
+    +odevNotlandir(assignment: Assignment, not: Not): void
+}
+
+class Ogrenci {
+    -alinanKurslar: List<Kurs>
+    -tamamlananOdevler: List<Odev>
+    +kayit(course: Kurs): void
+    +odevGonder(odev: Odev): void
+    +notIncele(): List<Not>
+}
+
+class Kurs {
+    -kursId: String
+    -kursAdi: String
+    -egitmen: Egitmen
+    -kayitliOgrenciler: List<Ogrenci>
+    -kursIcerik: List<Icerik>
+    +kursIdGoster(): String
+    +kursAdiGoster(): String
+    +egitmenGoster(): Egitmen
+    +kayitliOgrenciGoster(): List<Ogrenci>
+    +icerikGoster(): List<Icerik>
+    +ogrenciEkle(ogrenci: Ogrenci): void
+    +icerikEkle(icerik: Icerik): void
+}
+
+class Odev {
+    -odevId: String
+    -odevAdi: String
+    -kurs: Kurs
+    -sonTarih: SonTarih
+    +odevIdGoster(): String
+    +odevAdiGoster(): String
+    +kursGoster(): Kurs
+    +sonTarihGoster(): SonTarih
+}
+
+class Gonderim {
+    -gonderimId: String
+    -ogrenci: Ogrenci
+    -odev: Odev
+    -gonderimTarih: Date
+    -icerik: String
+    -not: Not
+    +gonderimIdGoster(): String
+    +ogrenciGoster(): Ogrenci
+    +odevGoster(): Odev
+    +gonderimTarihGoster(): Date
+    +icerikGoster(): String
+    +notGoster(): Not
+    +notAyarla(not: Not): void
+}
+
+class Icerik {
+    -icerikId: String
+    -icerikBaslik: String
+    -icerikTanim: String
+    -kurs: Kurs
+    +icerikIdGoster(): String
+    +icerikBaslikGoster(): String
+    +icerikTanimGoster(): String
+    +kursGoster(): Kurs
+}
+
+class Not {
+    -notId: String
+    -puan: double
+    -geriDonus: String
+    +notIdGoster(): String
+    +puanGoster(): double
+    +geriDonusGoster(): String
+    +geriDonusAyarla(feedback: String): void
+}
+
+' Define relationships
+Kullanici <|-- Egitmen
+Kullanici <|-- Ogrenci
+Egitmen "1" -- "*" Kurs : verilenKurslar
+Kurs "1" -- "*" Ogrenci : kayitliOgrenciler
+Kurs "1" -- "*" Icerik : kursIcerik
+Odev "1" -- "*" Gonderim
+Ogrenci "1" -- "*" Gonderim : gonderimler
+Gonderim "1" -- "1" Not
+
+@enduml
