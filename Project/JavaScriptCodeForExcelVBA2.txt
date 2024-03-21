@@ -1,32 +1,112 @@
-function PQvsLO_YZM() {
-  let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Hesaplamalar");
-  let i = 1;
-  let f = 0;
-  
-  do {
-    i++;
-    if (sheet.getRange(14, i).getValue() === "") {
-      f = 1;
-    }
-  } while (f === 0);
+Kullanici
+--
+-kullaniciId: String
+-kullaniciAdi: String
+-email: String
+-sifre: String
+--
++kullaniciIdGoster(): String
++kullaniciAdiGoster(): String
++emailGoster(): String
++sifreAyarla(sifre: String): void
++oturumAc(): void
++oturumKapat(): void
 
-  let m = i - 2;
 
-  for (let i = 1; i <= m; i++) {
-    sheet.getRange(4, m + 5 + i).setValue(i);
-    sheet.getRange(4, m + 5 + i).setHorizontalAlignment("center");
-    sheet.getRange(4, m + 5 + i).setNumberFormat("0");
-  }
+Egitmen
+--
+-verilenKurslar: List<Kurs>
+--
++kursOlustur(kursAdi: String): void
++icerikEkle(kurs: Kurs, icerik: Icerik): void
++odevNotlandir(assignment: Assignment, not: Not): void
 
-  for (let j = 1; j <= 8; j++) {
-    sheet.getRange(4 + j, m + 5).setValue(j);
-    sheet.getRange(4 + j, m + 5).setHorizontalAlignment("center");
-    sheet.getRange(4 + j, m + 5).setNumberFormat("0");
-  }
+Ogrenci
+--
+-alinanKurslar: List<Kurs>
+-tamamlananOdevler: List<Odev>
+--
++kayit(course: Kurs): void
++odevGonder(odev: Odev): void
++notIncele(): List<Not>
 
-  // Remaining code...
-}
+Kurs
+--
+-kursId: String
+-kursAdi: String
+-egitmen: Egitmen
+-kayitliOgrenciler: List<Ogrenci>
+-kursIcerik: List<Icerik>
+--
++kursIdGoster(): String
++kursAdiGoster(): String
++egitmenGoster(): Egitmen
++kayitliOgrenciGoster(): List<Ogrenci>
++icerikGoster(): List<Icerik>
++ogrenciEkle(ogrenci: Ogrenci): void
++icerikEkle(icerik: Icerik): void
 
-function SetUp_YZM() {
-  // Similar conversion as above...
-}
+Odev
+--
+-odevId: String
+-odevAdi: String
+-kurs: Kurs
+-sonTarih: SonTarih
+--
++odevIdGoster(): String
++odevAdiGoster(): String
++kursGoster(): Kurs
++sonTarihGoster(): SonTarih
+
+
+Not
+--
+-notId: String
+-puan: double
+-geriDonus: String
+--
++notIdGoster(): String
++puanGoster(): double
++geriDonusGoster(): String
++geriDonusAyarla(feedback: String): void
+
+Gonderim
+--
+-gonderimId: String
+-ogrenci: Ogrenci
+-odev: Odev
+-gonderimTarih: Date
+-icerik: String
+-not: Not
+--
++gonderimIdGoster(): String
++ogrenciGoster(): Ogrenci
++odevGoster(): Odev
++gonderimTarihGoster(): Date
++icerikGoster(): String
++notGoster(): Not
++notAyarla(not: Not): void
+
+Icerik
+--
+-icerikId: String
+-icerikBaslik: String
+-icerikTanim: String
+-kurs: Kurs
+--
++icerikIdGoster(): String
++icerikBaslikGoster(): String
++icerikTanimGoster(): String
++kursGoster(): Kurs
+
+Icerik 
+--
+-icerikId: String
+-icerikBaslik: String
+-icerik: String
+-kurs: Jurs
+--
++icerikIdGoster(): String
++icerikBasklikGoster(): String
++icerikTanimGoster(): String
++jursGoster(): Kurs
