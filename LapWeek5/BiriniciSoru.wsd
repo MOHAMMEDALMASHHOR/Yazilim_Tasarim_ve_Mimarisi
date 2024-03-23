@@ -1,0 +1,43 @@
+@startuml
+
+entity "Kitap" {
+  + ISBN
+  --
+  Başlık
+  YazarID (FK)
+  Tür
+}
+
+entity "Yazar" {
+  + AuthorID
+  --
+  Ad
+}
+
+entity "Ödünç Alma" {
+  + Ödünç Alma Kimliği (PK)
+  --
+  Alınma Tarihi
+  İade Tarihi
+  Ceza Tutarı
+  Durum
+}
+
+entity "Kitap-Yazar" {
+  --
+  ISBN (FK)
+  AuthorID (FK)
+}
+
+entity "Ödünç Alma-Kitap" {
+  --
+  Ödünç Alma Kimliği (FK)
+  ISBN (FK)
+}
+
+Kitap - "Kitap-Yazar"
+Kitap - "Ödünç Alma-Kitap"
+Yazar - "Kitap-Yazar"
+Ödünç Alma - "Ödünç Alma-Kitap"
+
+@enduml
