@@ -1,0 +1,5 @@
+AİN değeri hesaplamadan başlayarak
+TKF
+İN
+Satır sayısı
+COCOMO modellerine göre ayrık, yarı gömülü, gömülü türler için insan sayısı ve zaman hesaplayan progra
