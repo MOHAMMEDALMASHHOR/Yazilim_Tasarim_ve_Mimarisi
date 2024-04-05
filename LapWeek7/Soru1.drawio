@@ -1,11 +1,50 @@
-<mxfile host="Electron" modified="2024-04-05T10:38:05.551Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="Zi1RZdIHnJ64fMJ9PdnA" version="24.0.4" type="device">
+<mxfile host="Electron" modified="2024-04-05T11:29:43.997Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="rI5fWnc4dWxbhXYT8F17" version="24.0.4" type="device">
   <diagram name="Page-1" id="ppZMmiEuSEUpjYbNcqeP">
-    <mxGraphModel dx="1444" dy="944" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1034" dy="519" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="K9-Xf96pnQr6iXMx5Urm-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;Soru1&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="80" y="20" width="110" height="60" as="geometry" />
+        <mxCell id="DOW5wrkX7gO34xult0sk-2" value="&lt;b&gt;&lt;font style=&quot;font-size: 22px;&quot;&gt;Soru 1&lt;/font&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;strokeColor=#A50040;fontColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="120" y="60" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DOW5wrkX7gO34xult0sk-4" target="DOW5wrkX7gO34xult0sk-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="125" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-4" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="425" y="75" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-5" value="&lt;b&gt;&lt;span style=&quot;font-size:11.0pt;line-height:107%;&lt;br/&gt;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:&lt;br/&gt;Calibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;&lt;br/&gt;mso-bidi-font-family:Arial;mso-bidi-theme-font:minor-bidi;mso-ansi-language:&lt;br/&gt;TR;mso-fareast-language:EN-US;mso-bidi-language:AR-SA&quot;&gt;Kirmizi Isik&lt;/span&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="355" y="130" width="170" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-6" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" parent="1" source="DOW5wrkX7gO34xult0sk-5" target="DOW5wrkX7gO34xult0sk-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-7" value="&lt;b&gt;&lt;span style=&quot;font-size:11.0pt;line-height:107%;&lt;br/&gt;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:&lt;br/&gt;Calibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;&lt;br/&gt;mso-bidi-font-family:Arial;mso-bidi-theme-font:minor-bidi;mso-ansi-language:&lt;br/&gt;TR;mso-fareast-language:EN-US;mso-bidi-language:AR-SA&quot;&gt;Yesil&lt;/span&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fillColor=#cdeb8b;strokeColor=#36393d;" vertex="1" parent="1">
+          <mxGeometry x="630" y="130" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DOW5wrkX7gO34xult0sk-9" target="DOW5wrkX7gO34xult0sk-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-9" value="&lt;b&gt;&lt;span style=&quot;font-size:11.0pt;line-height:107%;&lt;br/&gt;font-family:&amp;quot;Calibri&amp;quot;,sans-serif;mso-ascii-theme-font:minor-latin;mso-fareast-font-family:&lt;br/&gt;Calibri;mso-fareast-theme-font:minor-latin;mso-hansi-theme-font:minor-latin;&lt;br/&gt;mso-bidi-font-family:Arial;mso-bidi-theme-font:minor-bidi;mso-ansi-language:&lt;br/&gt;TR;mso-fareast-language:EN-US;mso-bidi-language:AR-SA&quot;&gt;Sari Isik&lt;/span&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="610" y="290" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-10" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Sabit Sure&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="120" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DOW5wrkX7gO34xult0sk-7" target="DOW5wrkX7gO34xult0sk-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="300" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-12" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Sabit Sure&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="200" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DOW5wrkX7gO34xult0sk-13" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Sabit Sure&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="230" width="90" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
