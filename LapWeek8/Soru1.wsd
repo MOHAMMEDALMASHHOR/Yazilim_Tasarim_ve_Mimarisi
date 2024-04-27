@@ -1,0 +1,18 @@
+@startuml
+
+actor User
+participant "Kütüphane Sistemi" as LibrarySystem
+participant "Veritabanı" as Database
+
+User -> LibrarySystem: Kitap ödünç alma talebi
+LibrarySystem -> Database: Kitap var mı?
+Database --> LibrarySystem: Kitap mevcut
+LibrarySystem --> User: Kitap mevcut, ödünç alabilirsiniz
+User -> LibrarySystem: Kitabı al
+LibrarySystem -> Database: Kitap durumunu "verildi" olarak güncelle
+Database --> LibrarySystem: Kitap durumu güncellendi
+LibrarySystem --> User: Kitap alındı
+LibrarySystem -> Database: Kitap durumunu "kullanılamıyor" olarak güncelle
+Database --> LibrarySystem: Kitap durumu güncellendi
+
+@enduml
