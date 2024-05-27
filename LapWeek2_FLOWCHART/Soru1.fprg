@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-01 11:13:51 PM"/>
+        <attribute name="created" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAxOzAyOjUwOjI1IFBNOzI5Nzk="/>
+        <attribute name="edited" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAxOzExOjEzOjUxIFBNOzM7MzA4Nw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Enter the size of the array&quot;" newline="True"/>
+            <declare name="n, number, i, max" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="arr" type="Integer" array="True" size="n"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <output expression="&quot;Enter the&quot;&amp;i &amp;&quot;.&quot;&amp;&quot; elemant of the array&quot;" newline="True"/>
+                <input variable="number"/>
+                <assign variable="arr[i]" expression="number"/>
+            </for>
+            <assign variable="max" expression="arr[0]"/>
+            <assign variable="i" expression="0"/>
+            <for variable="i" start="0" end="n-1" direction="inc" step="1">
+                <if expression="max&lt;=arr[i]">
+                    <then>
+                        <assign variable="max" expression="arr[i]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;The biggest value of the array is: &quot;&amp;max" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

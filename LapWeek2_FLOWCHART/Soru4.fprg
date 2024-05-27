@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-03 08:25:16 AM"/>
+        <attribute name="created" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAzOzAxOjEzOjIzIEFNOzI5NjI="/>
+        <attribute name="edited" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAzOzA4OjI1OjE2IEFNOzI7MzA4Mw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="number, temp" type="Integer" array="False" size=""/>
+            <declare name="result" type="String" array="False" size=""/>
+            <input variable="number"/>
+            <while expression="number&lt;1">
+                <output expression="&quot;Enter a positive number &gt;=1&quot;" newline="True"/>
+                <input variable="number"/>
+            </while>
+            <assign variable="result" expression="&quot;&quot;"/>
+            <while expression="number&lt;&gt;0">
+                <assign variable="temp" expression="number%2"/>
+                <assign variable="number" expression="number/2"/>
+                <assign variable="result" expression="temp &amp;result"/>
+            </while>
+            <output expression="result" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

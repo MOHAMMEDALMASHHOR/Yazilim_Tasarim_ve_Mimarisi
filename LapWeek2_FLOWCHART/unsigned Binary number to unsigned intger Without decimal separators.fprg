@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Lenovo"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-03-03 09:05:18 AM"/>
+        <attribute name="created" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAzOzA4OjI1OjI1IEFNOzI5NzQ="/>
+        <attribute name="edited" value="TGVub3ZvO0RFU0tUT1AtUE5VOEE5TjsyMDI0LTAzLTAzOzA5OjA1OjE4IEFNOzE7MzA4Mw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="number, temp, saver, result, counter, checker, n, tempnumber" type="Integer" array="False" size=""/>
+            <assign variable="counter" expression="0"/>
+            <assign variable="result" expression="0"/>
+            <output expression="&quot;Enter the binary number&quot;" newline="True"/>
+            <input variable="number"/>
+            <assign variable="tempnumber" expression="number"/>
+            <while expression="number&lt;0">
+                <output expression="&quot;Enter a positive binary number !!!&quot;" newline="True"/>
+                <input variable="number"/>
+                <assign variable="tempnumber" expression="number"/>
+            </while>
+            <while expression="tempnumber!=0">
+                <assign variable="checker" expression="tempnumber%10"/>
+                <assign variable="tempnumber" expression="int(tempnumber/10)"/>
+                <if expression="checker&gt;1">
+                    <then>
+                        <output expression="&quot;Enter a binary number !!!&quot;" newline="True"/>
+                        <input variable="number"/>
+                        <assign variable="tempnumber" expression="number"/>
+                        <while expression="number&lt;0">
+                            <output expression="&quot;Enter a positive binary number !!!&quot;" newline="True"/>
+                            <input variable="number"/>
+                            <assign variable="tempnumber" expression="number"/>
+                        </while>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <while expression="number != 0">
+                <assign variable="temp" expression="number %10"/>
+                <assign variable="saver" expression="temp*2^counter"/>
+                <assign variable="result" expression="result+saver"/>
+                <assign variable="number" expression="int(number/10)"/>
+                <assign variable="counter" expression="counter+1"/>
+            </while>
+            <output expression="result" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
