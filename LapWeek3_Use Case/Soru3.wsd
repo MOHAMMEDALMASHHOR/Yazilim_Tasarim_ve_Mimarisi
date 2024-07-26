@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Kütüphaneci" as Librarian
+actor "Üye" as Member
+actor "Sistem" as System
+
+rectangle "Kütüphane Yönetim Sistemi" {
+
+  usecase "Kütüphane Envanterini Yönet" as ManageInventory
+  usecase "Kitap Durumu Kontrolü" as CheckBookStatus
+  usecase "Kitap İadesi Al" as AcceptBookReturn
+  usecase "Kitabı Yenile" as RenewBook
+  usecase "Rapor Oluştur" as GenerateReport
+  usecase "Para Cezası Topla" as CollectFine
+  usecase "Katalogda Ara" as SearchCatalog
+  usecase "Kitap Detaylarını Görüntüle" as ViewBookDetails
+  usecase "Yer Tut" as Reserve
+  usecase "Yer Tutmayı İptal Et" as CancelReservation
+  usecase "Hesabı Görüntüle" as ViewAccount
+  usecase "Gecikme Bildirimi Gönder" as SendDelayNotification
+
+  Librarian --> ManageInventory
+  ManageInventory .> CheckBookStatus : <<include>>
+  ManageInventory .> AcceptBookReturn : <<include>>
+  AcceptBookReturn .> RenewBook : <<extend>> 
+  Librarian --> GenerateReport
+  GenerateReport .> CollectFine : <<extend>>
+  Member --> SearchCatalog
+  Member --> ViewBookDetails
+  ViewBookDetails .> Reserve : <<include>>
+  Reserve .> CancelReservation : <<extend>>
+  Member --> ViewAccount
+  System --> SendDelayNotification
+  ManageInventory .> SendDelayNotification : <<include>>
+}
+
+@enduml

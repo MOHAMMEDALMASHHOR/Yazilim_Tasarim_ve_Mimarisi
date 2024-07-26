@@ -1,0 +1,21 @@
+@startuml
+
+actor User
+participant "Online Alışveriş Sistemi" as Shop
+participant "Ödeme Ağ Geçidi" as PaymentGateway
+participant "Envanter Sistemi" as InventorySystem
+participant "Nakliye Sistemi" as ShippingSystem
+
+User -> Shop: Ürün seçer
+Shop -> InventorySystem: Ürün envanterde var mı?
+InventorySystem --> Shop: Envantara uygunluk teyidi
+Shop -> PaymentGateway: Ödemeyi işle
+PaymentGateway --> Shop: Ödeme işlendi
+Shop -> User: Ödemeyi onayla
+Shop -> InventorySystem: Envantarı güncelle
+InventorySystem --> Shop: Envanter güncellendi
+Shop -> ShippingSystem: Nakliyatı onayla
+ShippingSystem --> Shop: Ürün teslim edildi
+Shop --> User: Ürün teslim edildi
+
+@enduml

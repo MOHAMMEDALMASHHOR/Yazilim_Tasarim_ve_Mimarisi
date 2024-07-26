@@ -1,0 +1,36 @@
+@startuml enes
+left to right direction
+skinparam packageStyle rectangle
+
+actor Kutuphaneci as librarian
+actor Uye as member
+
+rectangle KutuphaneYonetimSistemi {
+    usecase (KutuphaneEnvanteriniYonet) as InventoryManagement
+    usecase (KitapDurumuKontrolu) as CheckBookStatus
+    usecase (KitapIadesiAl) as AcceptBookReturn
+    usecase (KitabiYenile) as RenewBook
+    usecase (RaporOlustur) as GenerateReport
+    usecase (ParaCezasiTopla) as CollectFine
+    usecase (KatalogdaAra) as SearchCatalog
+    usecase (KitapDetaylariniGoruntule) as ViewBookDetails
+    usecase (YerTut) as Reserve
+    usecase (YerTutmayiIptalEt) as CancelReservation
+    usecase (HesabiGoruntule) as ViewAccount
+    usecase (GecikmeBildirimiGonder) as SendDelayNotification
+
+    librarian --> InventoryManagement
+    InventoryManagement .> CheckBookStatus : <<include>>
+    InventoryManagement .> AcceptBookReturn : <<include>>
+    AcceptBookReturn .> RenewBook : <<extend>>
+    librarian --> GenerateReport
+    GenerateReport .> CollectFine : <<extend>>
+    member --> SearchCatalog
+    member --> ViewBookDetails
+    ViewBookDetails .> Reserve : <<include>>
+    Reserve .> CancelReservation : <<extend>>
+    member --> ViewAccount
+    InventoryManagement .> SendDelayNotification : <<include>>
+}
+
+@enduml

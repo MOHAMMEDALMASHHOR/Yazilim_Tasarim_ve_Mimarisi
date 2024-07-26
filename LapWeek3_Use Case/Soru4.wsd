@@ -1,0 +1,56 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Müşteri" as Customer
+actor "Satıcı" as Seller
+actor "Yönetici" as Admin
+actor "Sistem" as System
+
+rectangle "E-Ticaret Platformu" {
+
+  usecase "Ürünlere Gözat" as BrowseProducts
+  usecase "Ürün Ara" as SearchProduct
+  usecase "Ürün Detaylarını Görüntüle" as ViewProductDetails
+  usecase "Sepete Ekle" as AddToCart
+  usecase "Sepetten Çıkar" as RemoveFromCart
+  usecase "Ödeme İşlemine Geç" as ProceedToCheckout
+  usecase "Sipariş Geçmişini Görüntüle" as ViewOrderHistory
+  usecase "Hesabı Yönet" as ManageAccount
+  usecase "Destekle İletişime Geç" as ContactSupport
+  usecase "Ürün Ekle" as AddProduct
+  usecase "Ürünü Düzenle" as EditProduct
+  usecase "Envanteri Yönet" as ManageInventory
+  usecase "Siparişleri Görüntüle" as ViewOrders
+  usecase "Kullanıcıları Yönet" as ManageUsers
+  usecase "Listeleri Yönet" as ManageLists
+  usecase "Anlaşmazlıkları Ele Al" as HandleDisputes
+  usecase "Platformu Görüntüle" as ViewPlatform
+  usecase "Sipariş Onayı Gönder" as SendOrderConfirmation
+  usecase "Ödeme İşlemi" as PaymentProcessing
+  usecase "Gönderi Onayı Gönder" as SendShippingConfirmation
+
+  Customer --> BrowseProducts
+  Customer --> SearchProduct
+  SearchProduct .> ViewProductDetails : <<include>>
+  Customer --> AddToCart
+  AddToCart .> ProceedToCheckout : <<include>>
+  Customer --> RemoveFromCart
+  Customer --> ViewOrderHistory
+  Customer --> ManageAccount
+  Customer --> ContactSupport
+  Seller --> AddProduct
+  Seller --> EditProduct
+  Seller --> ManageInventory
+  Seller --> ViewOrders
+  Admin --> ManageUsers
+  Admin --> ManageLists
+  Admin --> HandleDisputes
+  Admin --> ViewPlatform
+  System --> SendOrderConfirmation
+  ProceedToCheckout .> PaymentProcessing : <<include>>
+  PaymentProcessing .> SendOrderConfirmation : <<include>>
+  PaymentProcessing .> SendShippingConfirmation : <<extend>>
+}
+
+@enduml
