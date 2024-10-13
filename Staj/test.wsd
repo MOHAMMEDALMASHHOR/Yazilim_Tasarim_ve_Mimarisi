@@ -1,0 +1,38 @@
+@startuml
+
+participant "Mathematics" as Math
+participant "Physics" as Phys
+participant "Data Structures" as DS
+
+' Mathematics questions and their contributions
+Math -> Math: Vize_Q1: Solve for x in 2x + 3 = 7 (Contributes to Ö1, Ö2)
+Math -> Math: Vize_Q2: Integrate f(x) = x^2 from 0 to 2 (Contributes to Ö1)
+Math -> Math: Final_Q3: Find the derivative of f(x) = 3x^3 + 2x^2 - x + 1 (Contributes to Ö2)
+Math -> Math: Final_Q4: Prove lim (sin(x)/x) as x -> 0 = 1 (Contributes to Ö3)
+Math -> Math: Assignment_Q5: Apply Mean Value Theorem to f(x) = x^2 + 2x (Contributes to Ö1)
+
+' Physics questions and their contributions
+Phys -> Phys: Vize_Q1: Calculate net force on 5kg object at 2m/s^2 (Contributes to Ö1)
+Phys -> Phys: Vize_Q2: Explain Newton's third law with example (Contributes to Ö2)
+Phys -> Phys: Final_Q3: Determine potential energy of 10kg object at 5m height (Contributes to Ö2)
+Phys -> Phys: Final_Q4: Describe process of nuclear fission (Contributes to Ö3)
+Phys -> Phys: Project_Q5: Design experiment to measure acceleration due to gravity (Contributes to Ö1, Ö3)
+
+' Data Structures questions and their contributions
+DS -> DS: Vize_Q1: Implement linked list and perform basic operations (Contributes to Ö1)
+DS -> DS: Vize_Q2: Compare arrays and linked lists in terms of performance (Contributes to Ö2)
+DS -> DS: Final_Q3: Explain binary search algorithm and its complexity (Contributes to Ö2)
+DS -> DS: Final_Q4: Implement binary search tree and explain its uses (Contributes to Ö3)
+DS -> DS: Assignment_Q5: Analyze time complexity of different sorting algorithms (Contributes to Ö1, Ö3)
+
+' Learning outcomes contributing to Program Outcomes (P1, P2)
+Math --> "Mathematics P1: 50% (Ö1, Ö2)"
+Math --> "Mathematics P2: 50% (Ö3)"
+
+Phys --> "Physics P1: 50% (Ö1, Ö2)"
+Phys --> "Physics P2: 50% (Ö3)"
+
+DS --> "Data Structures P1: 50% (Ö1, Ö2)"
+DS --> "Data Structures P2: 50% (Ö3)"
+
+@enduml
