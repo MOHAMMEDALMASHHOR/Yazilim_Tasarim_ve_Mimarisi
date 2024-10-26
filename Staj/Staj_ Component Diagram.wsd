@@ -1,0 +1,40 @@
+@startuml
+package "Project Components" {
+    [Frontend] 
+    [Backend] 
+    [Database]
+    [User Management] 
+    [Program Outcomes Module] 
+    [Learning Outcomes Module]
+}
+
+package "Frontend Technologies" {
+    [React.js] 
+    [HTML/CSS/Bootstrap]
+}
+
+package "Backend Technologies" {
+    [Node.js]
+    [Express.js]
+}
+
+package "Database Technologies" {
+    [MongoDB] 
+}
+
+[Frontend] --> [React.js]
+[Frontend] --> [HTML/CSS/Bootstrap]
+[Backend] --> [Node.js]
+[Backend] --> [Express.js]
+[Backend] --> [Database]
+[Backend] --> [User Management]
+[Backend] --> [Program Outcomes Module]
+[Backend] --> [Learning Outcomes Module]
+[Database] --> [MongoDB]
+
+[User Management] --> [Password Reset]
+[User Management] --> [Email Verification]
+[Program Outcomes Module] --> [Program Outcomes Calculation]
+[Learning Outcomes Module] --> [Learning Outcomes Calculation]
+
+@enduml
