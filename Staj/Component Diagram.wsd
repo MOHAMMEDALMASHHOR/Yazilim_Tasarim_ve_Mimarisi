@@ -1,0 +1,21 @@
+@startuml
+component "Login System" as login {
+    [Login Page]
+    [User Authentication]
+}
+
+component "Faculty Management" as faculty {
+    [Add Faculty]
+    [Edit Faculty]
+    [Delete Faculty]
+}
+
+component "Department Management" as department {
+    [Add Department]
+    [Edit Department]
+    [Delete Department]
+}
+
+login --> faculty : Authenticated User
+login --> department : Authenticated User
+@enduml
